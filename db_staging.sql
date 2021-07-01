@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS [Location]
 
 CREATE TABLE [Supplier]
 (
-  [SupplierId] int IDENTITY (1, 1) NOT NULL ,
+  [SupplierId] int NOT NULL ,
   [CompanyName] varchar(50) NOT NULL ,
   [Phone] varchar(50) NOT NULL ,
   [IsPrivateLabel] bit NOT NULL ,
@@ -43,7 +43,7 @@ GO
 
 CREATE TABLE [Service]
 (
-  [ServiceId] int IDENTITY (1, 1) NOT NULL ,
+  [ServiceId] int NOT NULL ,
   [Name] varchar(50) NOT NULL ,
   [Type] varchar(50) NOT NULL ,
   [State] varchar(50) NOT NULL ,
@@ -65,7 +65,7 @@ GO
 
 CREATE TABLE [Location]
 (
-  [LocationId] int IDENTITY (1, 1) NOT NULL ,
+  [LocationId] int NOT NULL ,
   [Street] varchar(50) NOT NULL ,
   [City] varchar(50) NOT NULL ,
   [Region] varchar(50) NOT NULL ,
@@ -88,7 +88,7 @@ GO
 
 CREATE TABLE [Device]
 (
-  [DeviceId] int IDENTITY (1, 1) NOT NULL ,
+  [DeviceId] int NOT NULL ,
   [Name] varchar(50) NOT NULL ,
   [Brand] varchar(50) NOT NULL ,
   [Type] varchar(50) NOT NULL ,
@@ -110,7 +110,7 @@ GO
 
 CREATE TABLE [WareHouse]
 (
-  [WareHouseId] int IDENTITY (1, 1) NOT NULL ,
+  [WareHouseId] int NOT NULL ,
   [Name] varchar(50) NOT NULL ,
   [Phone] varchar(50) NOT NULL ,
   [Capacity] int NOT NULL ,
@@ -140,7 +140,7 @@ GO
 
 CREATE TABLE [SupplierDevice]
 (
-  [SupplierDeviceId] int IDENTITY (1, 1) NOT NULL ,
+  [SupplierDeviceId] int NOT NULL ,
   [SupplierId] int NOT NULL ,
   [DeviceId] int NOT NULL ,
   [PurchasePrice] money NOT NULL ,
@@ -177,7 +177,7 @@ GO
 
 CREATE TABLE [Store]
 (
-  [StoreId] int IDENTITY (1, 1) NOT NULL ,
+  [StoreId] int NOT NULL ,
   [Name] varchar(50) NOT NULL ,
   [Phone] varchar(50) NOT NULL ,
   [LocationId] int NOT NULL ,
@@ -206,7 +206,7 @@ GO
 
 CREATE TABLE [Customer]
 (
-  [CustomerId] int IDENTITY (1, 1) NOT NULL ,
+  [CustomerId] int NOT NULL ,
   [FirstName] varchar(50) NOT NULL ,
   [LastName] varchar(50) NOT NULL ,
   [Phone] varchar(50) NOT NULL ,
@@ -238,7 +238,7 @@ GO
 
 CREATE TABLE [DeviceWareHouse]
 (
-  [DeviceWareHouseId] int IDENTITY (1, 1) NOT NULL ,
+  [DeviceWareHouseId] int NOT NULL ,
   [DeviceId] int NOT NULL ,
   [WareHouseId] int NOT NULL ,
   [Amount] int NOT NULL ,
@@ -275,7 +275,7 @@ GO
 
 CREATE TABLE [Contract]
 (
-  [ContractId] int IDENTITY (1, 1) NOT NULL ,
+  [ContractId] int NOT NULL ,
   [CustomerId] int NOT NULL ,
   [ServiceId] int NOT NULL ,
   [DeviceId] int NOT NULL ,
