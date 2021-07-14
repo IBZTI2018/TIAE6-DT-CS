@@ -1,10 +1,10 @@
 USE [master]
 GO
-/****** Object:  Database [db_dwh]    Script Date: 09.07.2021 12:14:17 ******/
-CREATE DATABASE [db_dwh];
+/****** Object:  Database [TIAE6_DT_DWH]    Script Date: 09.07.2021 12:14:17 ******/
+CREATE DATABASE [TIAE6_DT_DWH];
 GO
 
-USE db_dwh;
+USE TIAE6_DT_DWH;
 GO
 
 CREATE TABLE [dbo].[DimContractSignDate](
@@ -195,5 +195,5 @@ ALTER TABLE [dbo].[FactSales] CHECK CONSTRAINT [FK_StoreId]
 GO
 USE [master]
 GO
-ALTER DATABASE [db_dwh] SET  READ_WRITE 
+ALTER DATABASE [TIAE6_DT_DWH] SET  READ_WRITE 
 GO
