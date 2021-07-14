@@ -237,6 +237,8 @@ CREATE NONCLUSTERED INDEX [fkIdx_94] ON [Contract]
 
 GO
 
+
+
 -- Create tables that are a copy of the dwh database
 CREATE TABLE [dbo].[DimContractSignDate](
 	[ContractSignDateId] [int] NOT NULL,
