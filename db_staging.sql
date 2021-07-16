@@ -368,6 +368,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[FactSales](
+	[ContractId] [int] NOT NULL,
 	[CustomerId] [int] NOT NULL,
 	[DeviceId] [int] NOT NULL,
 	[StoreId] [int] NOT NULL,
@@ -381,6 +382,7 @@ CREATE TABLE [dbo].[FactSales](
 	[ContractPrice] [money] NOT NULL,
  CONSTRAINT [PK_FactSales] PRIMARY KEY CLUSTERED 
 (
+	[ContractId] ASC,
 	[CustomerId] ASC,
 	[DeviceId] ASC,
 	[StoreId] ASC,
