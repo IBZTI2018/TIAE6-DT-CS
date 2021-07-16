@@ -78,3 +78,24 @@ MERGE TIAE6_DT_Staging.dbo.Customer AS TARGET
     THEN INSERT (CustomerId, FirstName, LastName, Phone, Birthdate, Gender, LocationId) VALUES (SOURCE.CustomerId, SOURCE.FirstName, SOURCE.LastName, SOURCE.Phone, SOURCE.Birthdate, SOURCE.Gender, SOURCE.LocationId)
   WHEN NOT MATCHED BY SOURCE 
     THEN DELETE;
+
+MERGE TIAE6_DT_Staging.dbo.Contract AS TARGET
+  USING TIAE6_DT_Production.dbo.Contract AS SOURCE 
+    ON (TARGET.ContractId = SOURCE.ContractId)
+  WHEN MATCHED AND TARGET.ContractId <> SOURCE.ContractId OR TARGET.CustomerId <> SOURCE.CustomerId OR TARGET.ServiceId <> SOURCE.ServiceId OR TARGET.DeviceId <> SOURCE.DeviceId OR TARGET.StoreId <> SOURCE.StoreId OR TARGET.ContractSignDate <> SOURCE.ContractSignDate OR TARGET.ContractValidFrom <> SOURCE.ContractValidFrom OR TARGET.ContractValidTo <> SOURCE.ContractValidTo      
+    THEN UPDATE SET TARGET.ContractId = SOURCE.ContractId, TARGET.CustomerId = SOURCE.CustomerId, TARGET.ServiceId = SOURCE.ServiceId, TARGET.DeviceId = SOURCE.DeviceId, TARGET.StoreId = SOURCE.StoreId, TARGET.ContractSignDate = SOURCE.ContractSignDate, TARGET.ContractValidFrom = SOURCE.ContractValidFrom, TARGET.ContractValidTo = SOURCE.ContractValidTo       
+  WHEN NOT MATCHED BY TARGET 
+    THEN INSERT (ContractId, CustomerId, ServiceId, DeviceId, StoreId, ContractSignDate, ContractValidFrom, ContractValidTo) VALUES (SOURCE.ContractId, SOURCE.CustomerId, SOURCE.ServiceId, SOURCE.DeviceId, SOURCE.StoreId, SOURCE.ContractSignDate, SOURCE.ContractValidFrom, SOURCE.ContractValidTo)
+  WHEN NOT MATCHED BY SOURCE 
+    THEN DELETE;
+
+
+MERGE TIAE6_DT_Staging.dbo.DeviceWareHouse AS TARGET
+  USING TIAE6_DT_Production.dbo.DeviceWareHouse AS SOURCE 
+    ON (TARGET.DeviceWareHouseId = SOURCE.DeviceWareHouseId)
+  WHEN MATCHED AND TARGET.DeviceWareHouseId <> SOURCE.DeviceWareHouseId OR TARGET.DeviceId <> SOURCE.DeviceId OR TARGET.WareHouseId <> SOURCE.WareHouseId OR TARGET.Amount <> SOURCE.Amount
+    THEN UPDATE SET TARGET.DeviceWareHouseId = SOURCE.DeviceWareHouseId, TARGET.DeviceId = SOURCE.DeviceId, TARGET.WareHouseId = SOURCE.WareHouseId, TARGET.Amount = SOURCE.Amount
+  WHEN NOT MATCHED BY TARGET 
+    THEN INSERT (DeviceWareHouseId, DeviceId, WareHouseId, Amount) VALUES (SOURCE.DeviceWareHouseId, SOURCE.DeviceId, SOURCE.WareHouseId, SOURCE.Amount)
+  WHEN NOT MATCHED BY SOURCE 
+    THEN DELETE;
