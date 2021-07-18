@@ -241,7 +241,7 @@ GO
 
 -- Create tables that are a copy of the dwh database
 CREATE TABLE [dbo].[DimContractSignDate](
-	[ContractSignDateId] [int] NOT NULL,
+	[ContractSignDateId] [int] IDENTITY (1, 1) NOT NULL,
 	[Year] [int] NOT NULL,
 	[Month] [int] NOT NULL,
 	[Week] [int] NOT NULL,
@@ -258,7 +258,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[DimContractValidFrom](
-	[ContractValidFromId] [int] NOT NULL,
+	[ContractValidFromId] [int] IDENTITY (1, 1) NOT NULL,
 	[Year] [int] NOT NULL,
 	[Month] [int] NOT NULL,
 	[Week] [int] NOT NULL,
@@ -275,7 +275,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE TABLE [dbo].[DimContractValidTo](
-	[ContractValidToId] [int] NOT NULL,
+	[ContractValidToId] [int] IDENTITY (1, 1) NOT NULL,
 	[Year] [int] NOT NULL,
 	[Month] [int] NOT NULL,
 	[Week] [int] NOT NULL,
